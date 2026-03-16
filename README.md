@@ -1,5 +1,9 @@
 <p align="center">
-  <img src="https://vmlx.net/logos/png/wordmark-transparent-600x150.png" alt="MLX Studio" width="400">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-wide-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="assets/logo-wide-light.png">
+    <img alt="MLX Studio" src="assets/logo-wide-light.png" width="400">
+  </picture>
 </p>
 
 <h3 align="center">The native macOS desktop app for local AI on Apple Silicon</h3>
