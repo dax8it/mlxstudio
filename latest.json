@@ -1,5 +1,5 @@
 {
-  "version": "1.2.3",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.2.3",
-  "notes": "MCP server fix (mcpServers key + PYTHONPATH unblocked), real download window, no silent HF downloads, cache memory leak fix, SQLite thread safety, image edit 30min timeout, Ko-fi support link, dead code cleanup"
+  "version": "1.2.4",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.2.4",
+  "notes": "Critical JANG loader fix, image redo buttons always visible, download system fixes, session health accuracy, 30-min image timeout, HF README viewer"
 }
