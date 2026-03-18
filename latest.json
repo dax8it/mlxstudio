@@ -1,5 +1,5 @@
 {
-  "version": "1.2.5",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.2.5",
-  "notes": "All mflux models (Klein, Kontext, Fill, FIBO), img2img variations, tool calling fix, streaming fix, Code tab placeholder"
+  "version": "1.2.6",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.2.6",
+  "notes": "JANG VL support (35B/122B with images), Fill mask painter, image editing fixes, per-byte downloads, memory-pressure batching, chunked VLM prefill, Anthropic/MCP/tool call fixes"
 }
