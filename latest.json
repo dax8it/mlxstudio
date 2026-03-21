@@ -1,1 +1,6 @@
-{"version":"1.3.3","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.3/vMLX-1.3.3-arm64.dmg","notes":"Prefix cache fix for KV quantization, 7 MEDIUM audit fixes, auto-update from mlx.studio"}
+{
+  "version": "1.3.4",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.4/vMLX-1.3.4-arm64.dmg",
+  "notes": "Fix block disk cache Metal crash (Issue #7), downgrade diagnostic logging",
+  "pub_date": "2026-03-21T00:00:00Z"
+}
