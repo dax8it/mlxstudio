@@ -1,1 +1,1 @@
-{"version":"1.3.20","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.20/vMLX-1.3.20-arm64.dmg","notes":"Default host 127.0.0.1 in all 5 locations (cli, server, sessions, chat, image). MLA two-pass detection fix. SSM companion skip for thinking models."}
+{"version":"1.3.21","url":"https://github.com/jjang-ai/mlxstudio/releases/download/v1.3.21/vMLX-1.3.21-arm64.dmg","notes":"Complete 127.0.0.1 default across all UI and backend. SSM cache fix. MLA two-pass detection. Enable thinking defaults Off."}
