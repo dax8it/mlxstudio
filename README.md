@@ -348,11 +348,22 @@ See the [vMLX source repo](https://github.com/jjang-ai/vmlx#advanced-quantizatio
 
 For MoE models that don't fit in RAM, **Smelt** loads only a subset of experts per layer from SSD and keeps the backbone resident. Response quality stays coherent while RAM usage drops; throughput scales inversely with expert % loaded because expert swaps hit SSD on the hot path.
 
-Verified coherent (non-looping) on `Nemotron-Cascade-2-30B-A3B-JANG_4M-CRACK` at 25 %, 50 %, and 100 % expert loading. Clean RAM / tok-s benchmarks to follow.
+**Verified coherent** (non-looping output, clean English):
+
+| Model | Architecture | Verification |
+|---|---|---|
+| `Nemotron-Cascade-2-30B-A3B-JANG_4M-CRACK` | 23 MoE × 128 experts, hybrid SSM | vMLX smelt at 25 %, 50 %, 100 % expert loading |
+| `Qwen3.5-REAP-212B-A17B` (v12 CRACK) | 60 × 267 experts, hybrid SSM + VL | L28@v3 probe, L27+L31 surgery s=8.00 — 8/8 compliance, 4/4 coherence, 33-39 tok/s |
+| `Qwen3.5-REAP-212B-A17B` (v14 CRACK) | 60 × 267 experts | 3-layer surgery — best quality, 4/4 coherence |
+| `Qwen3.5-REAP-262B-A17B` CRACK | 60 × 333 experts | Same L28 approach as 212B v12 |
+| `MiniMax-M2.5` | 62 × 256 experts, 230B | Coherent thinking + response on 91 GB mixed-precision format |
+| `Qwen3.5-35B-A3B` | hybrid MoE SSM | Runs end-to-end with ~8 GB RAM via partial expert loading |
+
+Clean RAM / tok-s benchmarks on a dedicated machine to follow. CRACK surgery verification comes from the companion [SMELT](https://github.com/jjang-ai/jang-smelt) project research logs.
 
 **Smelt is mutually exclusive with VLM mode.** MLX Studio / vMLX v1.3.33+ automatically disables `--is-mllm` when smelt is active (with a warning) because the vision tower is not wired through the partial-expert loader — image input on a smelt-loaded VLM would produce garbage logits. Use a text-only model when running smelt, or disable smelt when running a VLM.
 
-Requires an MoE model in JANG format (e.g. `Nemotron-Cascade-2-30B-A3B-JANG_4M-CRACK`, `Qwen3.5-35B-A3B-JANG_2S-TEXT`). Not compatible with dense models (no experts to partial-load).
+Requires an MoE model in JANG format. Not compatible with dense models (no experts to partial-load).
 
 ---
 
