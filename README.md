@@ -348,13 +348,17 @@ See the [vMLX source repo](https://github.com/jjang-ai/vmlx#advanced-quantizatio
 
 For MoE models that don't fit in RAM, **Smelt** loads only a subset of experts per layer from SSD and keeps the backbone resident. Response quality stays coherent while RAM usage drops; throughput scales inversely with expert % loaded because expert swaps hit SSD on the hot path.
 
-**Verified coherent** (non-looping output on a JANG MoE model under partial expert loading):
+**Benchmarks on `Nemotron-Cascade-2-30B-A3B-JANG_4M`** (23 MoE layers × 128 experts, Apple M3 Ultra / 128 GB, dedicated machine, no parallel models):
 
-| Model | Format | Verification |
-|---|---|---|
-| `Nemotron-Cascade-2-30B-A3B` | `JANG_4M` | Coherent output at 25 %, 50 %, and 100 % expert loading via vMLX `--smelt` |
+| `--smelt-experts` | Active RAM | Decode tok/s | RAM saving | Coherent |
+|---|---:|---:|---|---|
+| _off (baseline)_ | **17,408 MB** | **89.9** | — | ✓ |
+| `50` | 9,529 MB | **66.5** | **−45%** | ✓ |
+| `25` | 5,590 MB | * | **−68%** | ✓ |
 
-Clean RAM / tok-s benchmarks on a dedicated machine to follow. More JANG smelt reference models will be added as they're measured.
+\* Responses too short for reliable steady-state tok/s measurement at 25 %. Subjectively responsive.
+
+All three configurations produced coherent, non-looping output. No quality degradation observed.
 
 > **Credit**: Smelt mode is inspired by [Anemll's **flash-moe**](https://github.com/Anemll/flash-moe) — a pure C / Objective‑C / Metal inference engine that showed huge MoE models (Qwen3.5-397B) can run on modest Apple Silicon hardware by streaming expert weights from SSD with `pread()` on demand. vMLX Smelt takes a different implementation path: Python/MLX, tied to the JANG quantization format, and loading a fixed subset of experts per layer at startup (backbone resident, routing biased toward the loaded subset) rather than on-demand per-token. It plugs into the full vMLX server with continuous batching, paged cache, and OpenAI-compatible API. Different engine, same core insight — thanks to the flash-moe team for validating the approach.
 
