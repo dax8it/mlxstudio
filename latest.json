@@ -1,5 +1,5 @@
 {
-  "version": "1.3.75",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.3.75",
-  "notes": "LLM scheduler cache parity with MLLM (gen_prompt_len strip on fetch+store) — thinking models no longer miss 100% multi-turn on MiniMax/Nemotron LLM path. DeepSeek-R1 and Mistral non-streaming parsers now route reasoning correctly when <think> / [THINK] is in the prompt (Nemotron thinking no longer leaks into content). 5 model families verified multi-turn stream + non-stream."
+  "version": "1.3.76",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/tag/v1.3.76",
+  "notes": "Hybrid SSM cache poisoning fix: is_complete=False entries (captured post-gpl-prefill, state does not match key) now rejected on fetch — repeat-identical prompts on Qwen3.6-JANGTQ/MiniMax/Nemotron no longer produce <think></think> loops. Slower first re-hit (full re-prefill) but correct; LLM scheduler async rederive path remains the fast warm route for long sessions."
 }
