@@ -1,12 +1,12 @@
 {
-  "version": "1.5.12",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.12/vMLX-1.5.12-arm64.dmg",
+  "version": "1.5.13",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.13/vMLX-1.5.13-arm64.dmg",
   "swiftUrl": "https://github.com/jjang-ai/vmlx/releases/download/v2.0.0-rc.1/vMLX-2.0.0-rc.1-arm64.dmg",
   "swiftVersion": "2.0.0-rc.1",
   "swiftBetaUrl": "https://github.com/jjang-ai/vmlx/releases/download/v2.0.0-rc.1/vMLX-2.0.0-rc.1-arm64.dmg",
   "swiftBetaVersion": "2.0.0-rc.1",
-  "notes": "Python 1.5.12 — DSV4 instant load (~36× faster reload via pre-stacked sidecar) + paged/L2 cache re-enabled for HSA/CSA/SWA combo cache (live-verified 1032-token identical-prompt repeat: 34s → 1s, 1031 tokens saved, 17 disk writes). Swift 2.0.0-rc.1 ships in parallel as the native Mac app, Developer-ID notarized + stapled.",
+  "notes": "Python 1.5.13 — bundle-pipeline regression fix: prior 1.5.10/1.5.11/1.5.12 DMGs shipped stale 1.5.9 bundled-python because npm run build skipped scripts/bundle-python.sh. 1.5.13 chains bundle-python.sh + adds release-time version-drift guard (bundled vmlx_engine.__version__ must match package.json). Also drops the DSV4-only 512-token paged-cache short-prompt skip so DSV4-Flash uses the same paged-cache eligibility rules as every other family. DSV4 instant-load (sidecar fast path) and HSA/CSA/SWA combo paged/L2 cache from 1.5.12 are now actually present in the shipped DMG.",
   "primary": "swift",
-  "legacyUrl": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.12/vMLX-1.5.12-arm64.dmg",
-  "legacyVersion": "1.5.12"
+  "legacyUrl": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.13/vMLX-1.5.13-arm64.dmg",
+  "legacyVersion": "1.5.13"
 }
