@@ -1,10 +1,16 @@
 {
-  "version": "1.5.60",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.60/vMLX-1.5.60-arm64.dmg",
-  "sha256": "a82158c045658ed3bb0c834fd25abeb4bf80948f3e7d4260af8d325d0f756c48",
+  "version": "1.5.61",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
+  "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310",
   "downloads": {
-    "sequoia": { "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.60/vMLX-1.5.60-arm64.dmg", "sha256": "a82158c045658ed3bb0c834fd25abeb4bf80948f3e7d4260af8d325d0f756c48" },
-    "tahoe": { "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.60/vMLX-1.5.60-arm64.dmg", "sha256": "a82158c045658ed3bb0c834fd25abeb4bf80948f3e7d4260af8d325d0f756c48" }
+    "sequoia": {
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
+      "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
+    },
+    "tahoe": {
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
+      "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
+    }
   },
-  "notes": "vMLX 1.5.60\n\nHighlights:\n- MiniMax-M3 vision (VL) end-to-end, multi-turn image conversations (latest image replaces prior, no blending).\n- MiniMax-M3 ~2.4x decode speedup via bf16 residual cast (sustained 23-29 tok/s, coherent).\n- MiniMax-M3 MSA dual-cache forced paged (rescue); cache UI shows only M3-applicable options.\n- Phase-1 cache policy (paged off by default, SSD prefix default); JANG Tier-1 family fallback.\n\nVerification:\n- Notarized + stapled compat arm64 DMG from source commit de9b39609; Gatekeeper accepted; bundled vmlx_engine 1.5.60.\n- M3 VL multi-turn + speed proven live in the dev-build app (25-37 tok/s, retained history).\n\nDMG SHA256: a82158c045658ed3bb0c834fd25abeb4bf80948f3e7d4260af8d325d0f756c48"
+  "notes": "vMLX 1.5.61\n\nHighlights:\n- MiniMax-M3 reasoning fix: engine-side thinking-budget backstop bounds runaway reasoning loops (scales to max_tokens so it always fires before the output limit).\n- Reasoning on/off/auto modes work across chat completions, responses API, and gateway.\n- MiniMax-M3 VL reasoning kwarg fix (thinking_mode).\n\nVerification:\n- Notarized + stapled arm64 DMG; Gatekeeper accepted; bundled vmlx_engine 1.5.61.\n- Reasoning fix proven LIVE in the dev-build UI (multi-turn, coherent, no loop; backstop fired).\n\nDMG SHA256: faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
 }
