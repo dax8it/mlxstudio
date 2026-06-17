@@ -1,16 +1,16 @@
 {
-  "version": "1.5.61",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
-  "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310",
+  "version": "1.5.62",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-sequoia-arm64.dmg",
+  "sha256": "8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
-      "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-sequoia-arm64.dmg",
+      "sha256": "8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce"
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.61/vMLX-1.5.61-arm64.dmg",
-      "sha256": "faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-tahoe-arm64.dmg",
+      "sha256": "7261b4b135337d3b143cfc111cfd233a7f4111253b8f0dc63c60d373e3fbb061"
     }
   },
-  "notes": "vMLX 1.5.61\n\nHighlights:\n- MiniMax-M3 reasoning fix: engine-side thinking-budget backstop bounds runaway reasoning loops (scales to max_tokens so it always fires before the output limit).\n- Reasoning on/off/auto modes work across chat completions, responses API, and gateway.\n- MiniMax-M3 VL reasoning kwarg fix (thinking_mode).\n\nVerification:\n- Notarized + stapled arm64 DMG; Gatekeeper accepted; bundled vmlx_engine 1.5.61.\n- Reasoning fix proven LIVE in the dev-build UI (multi-turn, coherent, no loop; backstop fired).\n\nDMG SHA256: faf2102ed72ccde282e6b9349494322e391ab415d98d069dea13988175ef6310"
+  "notes": "vMLX 1.5.62\n\nHighlights:\n- MiniMax-M3 compatibility checkpoint focused on M3 autodetection, CLI/UI settings, reasoning/template handling, and MSA cache safety.\n- M3 dynamic MSA path now stays off mx.compile/JIT; paged cache and TurboQuant KV are suppressed for native M3 MSA.\n- M3 SSD/prefix cache reuse preserves MiniMaxM3SparseCache structure, including keys, values, idx_keys, and offsets instead of demoting to plain KV cache.\n- Release packaging now explicitly signs nested Electron/Squirrel runtime binaries before final app seal.\n\nVerification:\n- vMLX main source commit: 24c6199a7.\n- Targeted Python and panel MM3 test suites passed in the release lane.\n- Sequoia and Tahoe DMGs are Developer ID signed, Apple notarized, stapled, and Gatekeeper accepted.\n\nArtifacts:\n- Sequoia DMG SHA256: 8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce\n- Tahoe DMG SHA256: 7261b4b135337d3b143cfc111cfd233a7f4111253b8f0dc63c60d373e3fbb061\n\nCheckpoint boundary:\n- This release ships the MM3 compatibility fixes and signed/notarized app artifacts. It is not a full production-clear proof for every model family in the broader matrix."
 }
