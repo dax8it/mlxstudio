@@ -1,16 +1,16 @@
 {
-  "version": "1.5.62",
-  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-sequoia-arm64.dmg",
-  "sha256": "8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce",
+  "version": "1.5.63",
+  "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.63/vMLX-1.5.63-sequoia-arm64.dmg",
+  "sha256": "0be2ad302ae391efb7a1af2203db831162f60ec8271bd30a071a8c48e303c0dc",
   "downloads": {
     "sequoia": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-sequoia-arm64.dmg",
-      "sha256": "8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce"
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.63/vMLX-1.5.63-sequoia-arm64.dmg",
+      "sha256": "0be2ad302ae391efb7a1af2203db831162f60ec8271bd30a071a8c48e303c0dc"
     },
     "tahoe": {
-      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.62/vMLX-1.5.62-tahoe-arm64.dmg",
-      "sha256": "7261b4b135337d3b143cfc111cfd233a7f4111253b8f0dc63c60d373e3fbb061"
+      "url": "https://github.com/jjang-ai/mlxstudio/releases/download/v1.5.63/vMLX-1.5.63-tahoe-arm64.dmg",
+      "sha256": "aff1cc423dff786282d7f8e9fc2e1022d763b435a4e2d6e09bc941394d768a30"
     }
   },
-  "notes": "vMLX 1.5.62\n\nHighlights:\n- MiniMax-M3 compatibility checkpoint focused on M3 autodetection, CLI/UI settings, reasoning/template handling, and MSA cache safety.\n- M3 dynamic MSA path now stays off mx.compile/JIT; paged cache and TurboQuant KV are suppressed for native M3 MSA.\n- M3 SSD/prefix cache reuse preserves MiniMaxM3SparseCache structure, including keys, values, idx_keys, and offsets instead of demoting to plain KV cache.\n- Release packaging now explicitly signs nested Electron/Squirrel runtime binaries before final app seal.\n\nVerification:\n- vMLX main source commit: 24c6199a7.\n- Targeted Python and panel MM3 test suites passed in the release lane.\n- Sequoia and Tahoe DMGs are Developer ID signed, Apple notarized, stapled, and Gatekeeper accepted.\n\nArtifacts:\n- Sequoia DMG SHA256: 8ca1b94d3a8f04a601ed14f29a4d37c2586d14eb10506da5ada28a2a38943bce\n- Tahoe DMG SHA256: 7261b4b135337d3b143cfc111cfd233a7f4111253b8f0dc63c60d373e3fbb061\n\nCheckpoint boundary:\n- This release ships the MM3 compatibility fixes and signed/notarized app artifacts. It is not a full production-clear proof for every model family in the broader matrix."
+  "notes": "vMLX 1.5.63\n\nHighlights:\n- MiniMax-M3 compatibility update focused on REAP40-d3 loading, multimodal routing, reasoning controls, tool calls, and cache-hit stability.\n- Gemma 4 E2B/E4B/12B MXFP4 vision/text compatibility update with live UI and API coverage.\n- Model-owned generation defaults are preserved for supported startup paths.\n- MiniMax-M3 keeps its native MSA/Lightning sparse cache policy: paged cache off, TurboQuant KV skipped for native MSA, and JIT disabled for the dynamic sparse-cache path.\n- Gemma audio is not advertised in this release unless explicitly proven by the artifact/runtime.\n\nVerification:\n- vMLX main source commit: 12382f2a5.\n- MM3 installed-app stress covered 10 UI turns, reasoning off/on/auto, tool calls, image input, long-context recall, prefix-cache hits, Chat/Responses/Anthropic/Ollama, and streaming tool/image surfaces.\n- Gemma 4 E2B/E4B/12B MXFP4 installed-app stress covered 10 UI turns, reasoning off/on/auto, image input, tool calls, cache hits, Chat/Responses/Anthropic/Ollama, and streaming rows.\n- Sequoia and Tahoe DMGs are Developer ID signed, Apple notarized, stapled, and Gatekeeper accepted.\n\nArtifacts:\n- Sequoia DMG SHA256: 0be2ad302ae391efb7a1af2203db831162f60ec8271bd30a071a8c48e303c0dc\n- Tahoe DMG SHA256: aff1cc423dff786282d7f8e9fc2e1022d763b435a4e2d6e09bc941394d768a30\n\nScope:\n- This is a scoped MM3 + Gemma 4 VL compatibility release. Broader model-family matrix work continues in the next release line."
 }
